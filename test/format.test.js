@@ -1,7 +1,10 @@
 import assert from 'node:assert/strict';
 import {format} from '../utils/format.js'
 
-describe('simple Test', () => {
+describe('format test', () => {
+    it('0,00 should return true', () => {
+        assert.equal("0,00", format(undefined));
+    });
     it('2,56 should return true', () => {
         assert.equal("2,56", format(2.555));
     });
@@ -25,5 +28,8 @@ describe('simple Test', () => {
     });
     it('1,555 should return true', () => {
         assert.equal("1,555", format(1.55555, 3, ",", ".", false));
+    });
+    it('1,56 should return true', () => {
+        assert.equal("1,56", format("1.5555", 2));
     });
 });

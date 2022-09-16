@@ -1,3 +1,5 @@
+// formats the entry value
+// you can insert a string or int
 export function format(val = 0, fractionDigits = 2, decimalSeperator = ",", thousandsSeparator = ".", flag= true) {
 
     if (typeof val === 'string') {
