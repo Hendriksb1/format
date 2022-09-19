@@ -1,10 +1,11 @@
 // returns a formatted string 
 // input val can be of type number or string
-// currently supporting de-De and en-US 
+// currently supporting de-DE by default and en-US is optional
 export function format(val = 0, fractionDigits = 2, decimalSeperator = ",", thousandsSeparator = ".", flag= true) {
 
+    // ensure it is a number (floating-point)
     if (typeof val === 'string') {
-        val = Number(val)
+        val = Number(val);
     }
 
     let formatToLocale = function (locale) {
@@ -17,7 +18,6 @@ export function format(val = 0, fractionDigits = 2, decimalSeperator = ",", thou
         result = formatToLocale('en-US');
     }
 
-
     if (val < 0 || flag === false) {
 
         result = val.toString().replace(".", ',').substring(0, newLength(val, fractionDigits));
@@ -25,14 +25,13 @@ export function format(val = 0, fractionDigits = 2, decimalSeperator = ",", thou
         if (val.toString().length <= newLength(val, fractionDigits)) {
             result = val.toFixed(fractionDigits).replace(".", ',')
         }
-
     }
 
     return result
 }
 
 
-let newLength = function (int, fractionDigits) {
-    let i = int.toString().indexOf('.');
-    return  int.toString().substring(0, i).length + fractionDigits + 1
+let newLength = function (number, fractionDigits) {
+    let i = number.toString().indexOf('.');
+    return  number.toString().substring(0, i).length + fractionDigits + 1
 }
