@@ -11,7 +11,7 @@ export function format(val = 0, fractionDigits = 2, decimalSeperator = ",", thou
         return new Intl.NumberFormat(locale, { minimumFractionDigits: fractionDigits, maximumFractionDigits: fractionDigits }).format(val);
     }
 
-    let result = formatToLocale( 'de-De');
+    let result = formatToLocale( 'de-DE');
 
     if (decimalSeperator === "." && thousandsSeparator === ",") {
         result = formatToLocale('en-US');
