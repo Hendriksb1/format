@@ -1,6 +1,6 @@
 // returns a formatted entry value
 // val can be of type number or string
-// can be configured to use a specific locale ( currently supporting de-De and en-US
+// can be configured to use a specific locale ( currently supporting de-De and en-US )
 export function format(val = 0, fractionDigits = 2, decimalSeperator = ",", thousandsSeparator = ".", flag= true) {
 
     if (typeof val === 'string') {
