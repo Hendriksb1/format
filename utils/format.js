@@ -17,8 +17,15 @@ export function format(val = 0, fractionDigits = 2, decimalSeperator = ",", thou
         result = formatToLocale('en-US');
     }
 
+
     if (val < 0 || flag === false) {
+
         result = val.toString().replace(".", ',').substring(0, newLength(val, fractionDigits));
+
+        if (val.toString().length <= newLength(val, fractionDigits)) {
+            result = val.toFixed(fractionDigits).replace(".", ',')
+        }
+
     }
 
     return result

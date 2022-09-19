@@ -32,4 +32,23 @@ describe('format test', () => {
     it('1,56 should return true', () => {
         assert.equal("1,56", format("1.5555", 2));
     });
+    // additional tests that I needed are below
+    it('1,00 should return true', () => {
+        assert.equal("1,00", format("1", 2));
+    });
+    it('1,0 should return true', () => {
+        assert.equal("1,0", format("1", 1));
+    });
+    it('-1,00 should return true', () => {
+        assert.equal("-1,00", format(-1, 2));
+    });
+    it('-1,00 should return true', () => {
+        assert.equal("-1,00", format("-1", 2));
+    });
+    it('-1,0 should return true', () => {
+        assert.equal("-1,0", format(-1,1));
+    });
+    it('-1,1 should return true', () => {
+        assert.equal("-1,1", format(-1.1,1));
+    });
 });
